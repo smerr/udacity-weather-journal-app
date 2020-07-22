@@ -18,9 +18,9 @@ function getWeatherData(e) {
   // get user input
   const zip = document.getElementById("zip").value;
   const content = document.getElementById("feelings").value;
-  const url = "${baseURL}${zip}${apiKey}";
+  const url = `${baseURL}${zip}${apiKey}`;
 
-  getWeatherAPI(baseURL, zip, apiKey)
+  getWeatherAPI(url)
     .then(function (userData) {
       postData("/add", {
         date: newDate,
@@ -31,8 +31,6 @@ function getWeatherData(e) {
     .then(function (postData) {
       updateUI();
     });
-
-  form.reset();
 }
 /* Function to GET Web API Data*/
 const getWeatherAPI = async (url) => {
